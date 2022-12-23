@@ -1,0 +1,15 @@
+.sidebar {
+    grid-area: s;
+    background-color: lightgreen;
+}
+
+.item a {
+    text-decoration: none;
+    color: lightslategray;
+    font-weight: 400;
+}
+
+.item a.activeLink {
+    color: chocolate;
+    font-weight: 700;
+}

@@ -1,0 +1,18 @@
+.dialogsWrapper {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.user {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.dialogMessages {
+
+}
+
+.message {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300;
+}
