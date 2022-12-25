@@ -75,33 +75,27 @@ export const setUserStatus = (status) => {
 //Thunks:
 export const getUserProfile = (userId) => {
   return (
-    (dispatch) => {
-      profileAPI.getUserProfile(userId)
-        .then((data) => {
-          dispatch(setUserProfile(data));
-        });
+    async (dispatch) => {
+      const data = await profileAPI.getUserProfile(userId);
+      dispatch(setUserProfile(data));
     }
   )
 };
 export const getUserStatus = (userId) => {
   return (
-    (dispatch) => {
-      profileAPI.getUserStatus(userId)
-        .then((data) => {
-          dispatch(setUserStatus(data));
-        });
+    async (dispatch) => {
+      const data = await profileAPI.getUserStatus(userId);
+      dispatch(setUserStatus(data));
     }
   )
 };
 export const updateUserStatus = (status) => {
   return (
-    (dispatch) => {
-      profileAPI.updateUserStatus(status)
-        .then((data) => {
-          if (data.resultCode === 0) {
-            dispatch(setUserStatus(status));
-          }
-        });
+    async (dispatch) => {
+      const data = await profileAPI.updateUserStatus(status);
+      if (data.resultCode === 0) {
+        dispatch(setUserStatus(status));
+      };
     }
   )
 };

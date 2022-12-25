@@ -1,4 +1,3 @@
-import { authAPI } from '../../API/API'
 import { authUser } from './AuthReducer';
 
 const INITIALIZING_SUCCES = "INITIALIZING_SUCCES";
@@ -31,12 +30,10 @@ export const initializingSuccess = () => {
 //Thunks:
 export const initializeApp = () => {
   return (
-    (dispatch) => {
+    async (dispatch) => {
       const promise = dispatch(authUser());
-      Promise.all([promise])
-        .then(() => {
-          dispatch(initializingSuccess());
-        });
+      await Promise.all([promise]);
+      dispatch(initializingSuccess());
     }
   )
 };

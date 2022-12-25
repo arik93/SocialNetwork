@@ -22,11 +22,15 @@ import {
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+    const { requestUsers, currentPage, pageSize } = this.props;
+
+    requestUsers(currentPage, pageSize);
   }
 
   onPageChange = (pageNumber) => {
-    this.props.requestUsers(pageNumber, this.props.pageSize);
+    const { requestUsers, pageSize } = this.props;
+
+    requestUsers(pageNumber, pageSize);
   }
 
   render() {
@@ -41,18 +45,6 @@ class UsersContainer extends React.Component {
     )
   };
 };
-
-// const mapStateToProps = (state) => {
-//   return {
-//     users: state.usersPage.users,
-//     pageSize: state.usersPage.pageSize,
-//     totalUsersCount: state.usersPage.totalUsersCount,
-//     currentPage: state.usersPage.currentPage,
-//     isLoading: state.usersPage.isLoading,
-//     followingInProgress: state.usersPage.followingInProgress
-//   }
-// };
-
 
 const mapStateToProps = (state) => {
   return {

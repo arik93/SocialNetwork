@@ -6,102 +6,62 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-  getUserProfile(userId = 26997) {
-    return (
-      instance.get(`profile/${userId}`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async getUserProfile(userId = 26997) {
+    const response = await instance.get(`profile/${userId}`);
+    return response.data;
   },
 
-  getUsers(currentPage = 1, pageSize = 5) {
-    return (
-      instance.get(`users?page=${currentPage}&count=${pageSize}`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async getUsers(currentPage = 1, pageSize = 5) {
+    const response = await instance.get(`users?page=${currentPage}&count=${pageSize}`);
+    return response.data;
   },
 
-  unfollowUser(userId) {
-    return (
-      instance.delete(`follow/${userId}`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async unfollowUser(userId) {
+    const response = await instance.delete(`follow/${userId}`);
+    return response.data;
   },
 
-  followUser(userId) {
-    return (
-      instance.post(`follow/${userId}`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async followUser(userId) {
+    const response = await instance.post(`follow/${userId}`);
+    return response.data;
   },
 };
 
 export const profileAPI = {
-  getUserProfile(userId) {
-    return (
-      instance.get(`profile/${userId}`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async getUserProfile(userId) {
+    const response = await instance.get(`profile/${userId}`);
+    return response.data;
   },
 
-  getUserStatus(userId) {
-    return (
-      instance.get(`profile/status/${userId}`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async getUserStatus(userId) {
+    const response = await instance.get(`profile/status/${userId}`);
+    return response.data;
   },
 
-  updateUserStatus(status) {
-    return (
-      instance.put(`profile/status`, { status })
-        .then((res) => {
-          return res.data
-        })
-    )
+  async updateUserStatus(status) {
+    const response = await instance.put(`profile/status`, { status });
+    return response.data;
   },
 };
 
 export const authAPI = {
-  authMe() {
-    return (
-      instance.get(`auth/me`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async authMe() {
+    const response = await instance.get(`auth/me`);
+    return response.data;
   },
 
-  login(email, password, rememberMe) {
-    return (
-      instance.post(`auth/login`, {
-        email,
-        password,
-        rememberMe
-      })
-        .then((res) => {
-          return res.data
-        })
-    )
+  async login(email, password, rememberMe) {
+    const response = await instance.post(`auth/login`, {
+      email,
+      password,
+      rememberMe
+    });
+    return response.data;
   },
 
-  logout() {
-    return (
-      instance.delete(`auth/login`)
-        .then((res) => {
-          return res.data
-        })
-    )
+  async logout() {
+    const response = await instance.delete(`auth/login`);
+    return response.data;
   }
 };
 
