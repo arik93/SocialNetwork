@@ -17,7 +17,7 @@ class App extends React.Component {
   componentDidMount() {
     const { initializeApp } = this.props;
 
-    initializeApp();
+    initializeApp(); 
   }
 
   render() {
