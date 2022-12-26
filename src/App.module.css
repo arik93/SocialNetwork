@@ -10,5 +10,4 @@
 .contentWrapper {
     grid-area: c;
     background-color: lightcoral;
-    overflow-x: hidden;
 }
