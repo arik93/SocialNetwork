@@ -17,5 +17,3 @@ root.render(
     </Provider>
   </BrowserRouter>
 );
-
-window.store = store;
