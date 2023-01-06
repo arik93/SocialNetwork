@@ -3,7 +3,7 @@ import { usersAPI } from '../../API/API'
 const FOLLOW_SUCCESS = "FOLLOW_SUCCESS";
 const UNFOLLOW_SUCCESS = "UNFOLLOW_SUCCESS";
 const SET_USERS = "SET_USERS";
-const SET_USERS_TOTAL_COUNT = "SET_USERS_TOTAL_COUNT";
+const SET_USERS_TOTAL_AMOUNT = "SET_USERS_TOTAL_AMOUNT";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const TOGGLE_LOADER = "TOGGLE_LOADER";
 const TOGGLE_FOLLOWING = "TOGGLE_FOLLOWING";
@@ -11,7 +11,7 @@ const TOGGLE_FOLLOWING = "TOGGLE_FOLLOWING";
 const initialState = {
   users: [],
   pageSize: 10,
-  totalUsersCount: 0,
+  totalUsersAmount: 0,
   currentPage: 1,
   isLoading: false,
   followingInProgress: [],
@@ -53,10 +53,10 @@ const UsersReducer = (state = initialState, action) => {
         users: action.users
       };
 
-    case SET_USERS_TOTAL_COUNT:
+    case SET_USERS_TOTAL_AMOUNT:
       return {
         ...state,
-        totalUsersCount: action.totalUsersCount
+        totalUsersAmount: action.totalUsersAmount
       };
 
     case SET_CURRENT_PAGE:
@@ -103,10 +103,10 @@ export const setUsers = (users) => {
     users
   });
 };
-export const setTotalUsersCount = (totalUsersCount) => {
+export const setTotalUsersAmount = (totalUsersAmount) => {
   return ({
-    type: SET_USERS_TOTAL_COUNT,
-    totalUsersCount
+    type: SET_USERS_TOTAL_AMOUNT,
+    totalUsersAmount
   });
 };
 export const setCurrentPage = (currentPage) => {
@@ -150,7 +150,7 @@ export const requestUsers = (currentPage, pageSize) => {
       dispatch(setCurrentPage(currentPage));
       dispatch(toggleLoader(false));
       dispatch(setUsers(data.items));
-      dispatch(setTotalUsersCount(data.totalCount));
+      dispatch(setTotalUsersAmount(data.totalAmount));
     }
   )
 };

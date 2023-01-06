@@ -7,25 +7,19 @@ export default function Users(props) {
     onPageChange,
     users,
     pageSize,
-    totalUsersCount,
+    totalUsersAmount,
     currentPage,
     followingInProgress,
     follow,
     unfollow
   } = props;
 
-  let pagesCount = Math.ceil(totalUsersCount / pageSize);
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
   return (
     <div>
       <Paginator 
         onPageChange={onPageChange}
         pageSize={pageSize}
-        totalItemsCount={totalUsersCount}
+        totalItemsAmount={totalUsersAmount}
         currentPage={currentPage}
         portionSize={10}
       />

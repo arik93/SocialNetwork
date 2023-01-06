@@ -13,7 +13,7 @@ import { compose } from 'redux';
 import { 
   getUsers,
   getPageSize,  
-  getTotalUsersCount,
+  getTotalUsersAmount,
   getCurrentPage,
   getIsLoading,
   getFollowingInProgress
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => {
   return {
     users: getUsers(state),
     pageSize: getPageSize(state),
-    totalUsersCount: getTotalUsersCount(state),
+    totalUsersAmount: getTotalUsersAmount(state),
     currentPage: getCurrentPage(state),
     isLoading: getIsLoading(state),
     followingInProgress: getFollowingInProgress(state)

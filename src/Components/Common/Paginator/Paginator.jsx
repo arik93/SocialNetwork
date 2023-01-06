@@ -6,12 +6,12 @@ export default function Paginator(props) {
   const {
     onPageChange,
     pageSize,
-    totalItemsCount,
+    totalItemsAmount,
     currentPage,
     portionSize
   } = props;
 
-  const pagesAmount = Math.ceil(totalItemsCount / pageSize);
+  const pagesAmount = Math.ceil(totalItemsAmount / pageSize);
   const pages = [];
   for (let i = 1; i <= pagesAmount; i++) {
     pages.push(i);
